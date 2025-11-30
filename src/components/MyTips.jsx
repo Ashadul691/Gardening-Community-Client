@@ -1,8 +1,8 @@
+import { Edit, Eye, Plus, Trash2 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
-import { Trash2, Edit, Plus, Eye } from "lucide-react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const MyTips = () => {
   const { user } = useContext(AuthContext);
@@ -11,7 +11,7 @@ const MyTips = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/tips/user/${user.email}`)
+      fetch(`https://gardening-community-server-five.vercel.app/tips/user/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setTips(data);
@@ -35,7 +35,7 @@ const MyTips = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tips/${id}`, {
+        fetch(`https://gardening-community-server-five.vercel.app/tips/${id}`, {
           method: "DELETE"
         })
           .then((res) => res.json())

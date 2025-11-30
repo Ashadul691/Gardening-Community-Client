@@ -1,18 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
-import RootLayout from "../Layout/RootLayout";
-import Home from "../pages/Home";
-import ExploreGardeners from "../components/ExploreGardeners";
-import BrowseTips from "../components/BrowseTips";
-import ShareTip from "../components/ShareTips";
-import MyTips from "../components/MyTips";
 import Authentication from "../Authentication/Authentication";
 import Signin from "../Authentication/Signin";
 import SignUp from "../Authentication/SignUp";
-import PrivateRoute from "../Provider/PrivateRoute";
-import Footer from "../pages/Footer";
+import BrowseTips from "../components/BrowseTips";
+import ExploreGardeners from "../components/ExploreGardeners";
 import MyProfile from "../components/MyProfile";
+import MyTips from "../components/MyTips";
+import ShareTip from "../components/ShareTips";
+import TipDetails from "../components/TipDetails";
 import UpdateTip from "../components/UpdateTip";
-import TipDetails from "../components/TipDetails"; 
+import RootLayout from "../Layout/RootLayout";
+import Footer from "../pages/Footer";
+import Home from "../pages/Home";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         path: "gardeners",
         element: <ExploreGardeners />,
         loader: async () => {
-          const response = await fetch("http://localhost:5000/gardeners");
+          const response = await fetch("https://gardening-community-server-five.vercel.app/gardeners");
           return response.json();
         }
       },
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
         path: "tips",
         element: <BrowseTips />,
         loader: async () => {
-          const response = await fetch("http://localhost:5000/tips");
+          const response = await fetch("https://gardening-community-server-five.vercel.app/tips");
           return response.json();
         }
       },
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       {
         path: "tips/:id",
         element: <TipDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/tips/${params.id}`).then(res => res.json())
+        loader: ({ params }) => fetch(`https://gardening-community-server-five.vercel.app/tips/${params.id}`).then(res => res.json())
       },
       {
         path: "share-tip",
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
       {
         path: "tips/:id/edit",
         element: <UpdateTip />,
-        loader: ({ params }) => fetch(`http://localhost:5000/tips/${params.id}`).then(res => res.json())
+        loader: ({ params }) => fetch(`https://gardening-community-server-five.vercel.app/tips/${params.id}`).then(res => res.json())
       },
       {
         path: "my-tips",

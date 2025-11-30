@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import { Leaf, Users, BookOpen, Calendar, Plus, Heart, TrendingUp, MapPin, Star } from "lucide-react";
+import { BookOpen, Calendar, Heart, MapPin, Plus, Star, TrendingUp, Users } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Link } from "react-router-dom";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import slider1 from '../assets/slider1.jpg';
 import slider2 from '../assets/slider2.jpg';
 import slider3 from '../assets/slider3.jpg';
@@ -18,13 +18,13 @@ const Home = () => {
 
   useEffect(() => {
     
-    fetch('http://localhost:5000/tips/trending?limit=6')
+    fetch('https://gardening-community-server-five.vercel.app/tips/trending?limit=6')
       .then(res => res.json())
       .then(data => setTrendingTips(data))
       .catch(err => console.error(err));
 
     
-    fetch('http://localhost:5000/gardeners/featured?status=active&limit=6')
+    fetch('https://gardening-community-server-five.vercel.app/gardeners/featured?status=active&limit=6')
       .then(res => res.json())
       .then(data => setFeaturedGardeners(data))
       .catch(err => console.error(err));

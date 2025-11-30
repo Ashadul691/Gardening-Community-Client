@@ -1,8 +1,8 @@
+import { Leaf, Plus } from "lucide-react";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
-import { Plus, Leaf } from "lucide-react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const ShareTip = () => {
   const { user } = useContext(AuthContext);
@@ -38,7 +38,7 @@ const ShareTip = () => {
       totalLiked: 0
     };
 
-    fetch("http://localhost:5000/tips", {
+    fetch("https://gardening-community-server-five.vercel.app/tips", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTip)

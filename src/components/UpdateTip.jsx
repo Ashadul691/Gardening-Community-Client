@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
 import { Edit, Leaf } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateTip = () => {
@@ -56,7 +56,7 @@ const UpdateTip = () => {
   //     updatedAt: new Date().toISOString()
   //   };
 
-  //   const url = `http://localhost:5000/tips/${tipData._id}`;
+  //   const url = `https://gardening-community-server-five.vercel.app/tips/${tipData._id}`;
   //   console.log('UpdateTip submit', { url, updatedTip });
 
   //   fetch(url, {
@@ -123,7 +123,7 @@ const UpdateTip = () => {
     };
 
     // Don't include _id in the body
-    const url = `http://localhost:5000/tips/${tipData._id}`;
+    const url = `https://gardening-community-server-five.vercel.app/tips/${tipData._id}`;
     console.log('Submitting update to:', url);
     console.log('Update data:', updatedTip);
 
